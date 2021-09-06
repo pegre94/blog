@@ -1,0 +1,10 @@
+* My personal digital garden and blog.
+
+I'm using [[https://github.com/rasendubi/uniorg][uniorg]] and [[https://nextjs.org/][Next.js]] to publish [[ https://www.orgroam.com/ ][org-roam]] notes.
+
+* How to use:
+** Develop locally:
+1) Put your notes to ./public/roam
+2) Start server with: npx next dev
+Server should be up and running on [[http:localhost:3000]]
+** Deploy the example using [[https:vercel.com][vercel]].
