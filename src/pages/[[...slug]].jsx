@@ -43,7 +43,8 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async ({ params }) => {
-  const path = "/" + join(...(params.slug || ["20210902135542-index"]));
+  const path = "/" + join(...(params.slug || ["20210907090029-index"]));
+
   console.log(path);
   const post = await getPostBySlug(path);
   const data = post.data;

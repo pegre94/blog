@@ -8,3 +8,20 @@ I'm using [[https://github.com/rasendubi/uniorg][uniorg]] and [[https://nextjs.o
 2) Start server with: npx next dev
 Server should be up and running on [[http:localhost:3000]]
 ** Deploy the example using [[https:vercel.com][vercel]].
+
+* Directories and files structure and description:
+
+.
+├── ./components
+│   ├── ./components/Link.jsx
+│   └── ./components/Rehype.jsx
+├── ./lib
+│   ├── ./lib/api.js
+│   ├── ./lib/orgToHtml.js
+│   └── ./lib/resolveLinks.js
+├── ./pages
+│   ├── ./pages/_app.js
+│   ├── ./pages/archive.jsx
+│   └── ./pages/[[...slug]].jsx
+└── ./styles
+    └── ./styles/globals.css
