@@ -10,7 +10,6 @@ Server should be up and running on [[http:localhost:3000]]
 ** Deploy the example using [[https:vercel.com][vercel]].
 
 * Directories and files structure and description:
-
 .
 ├── ./components
 │   ├── ./components/Link.jsx
@@ -25,3 +24,8 @@ Server should be up and running on [[http:localhost:3000]]
 │   └── ./pages/[[...slug]].jsx
 └── ./styles
     └── ./styles/globals.css
+
+* TODO Blog
+
+- [X] Compile only tag "PUBLIC"
+- [X] List all posts

@@ -1,8 +1,7 @@
 import * as path from "path";
-import trough from "trough";
-import toVFile from "to-vfile";
-import findDown from "vfile-find-down";
-import rename from "vfile-rename";
+import { trough } from "trough";
+import { toVFile } from "to-vfile";
+import { findDown } from "vfile-find-down";
 import report from "vfile-reporter";
 
 import orgToHtml from "./orgToHtml";
@@ -24,8 +23,8 @@ const processor = trough()
 
 function collectFiles(root) {
   return new Promise((resolve, reject) => {
-    findDown.all(
-      (f, stats) => stats.isFile() && f.basename.endsWith(".org"),
+    findDown(
+      (f, stats) => stats.isFile() && f.basename.endsWith(".org") ,
       root,
       (err, files) => {
         if (err) {
@@ -34,6 +33,7 @@ function collectFiles(root) {
           files.forEach((f) => {
             const slug =
               "/" + path.relative(root, f.path).replace(/\.org$/, "");
+
             f.data.slug = slug;
           });
           resolve(files);
@@ -53,10 +53,13 @@ async function processPosts(files) {
       console.error("Error reading file", file, e);
       throw e;
     }
-
-    rename(file, { path: file.data.slug });
+    file.path = file.data.slug;
 
     await orgToHtml(file);
+
+    if (file.data.type == "public") {
+      console.log(file)
+    }
 
     return file;
   }
