@@ -27,6 +27,7 @@ function collectFiles(root) {
       (f, stats) => stats.isFile() && f.basename.endsWith(".org") ,
       root,
       (err, files) => {
+
         if (err) {
           reject(err);
         } else {
@@ -44,7 +45,9 @@ function collectFiles(root) {
 }
 
 async function processPosts(files) {
-  return Promise.all(files.map(processPost));
+  let processedPosts = await Promise.all(files.map(processPost))
+  // filter private files
+  return processedPosts.filter(files => files.data.type == "public")
 
   async function processPost(file) {
     try {
@@ -53,14 +56,9 @@ async function processPosts(files) {
       console.error("Error reading file", file, e);
       throw e;
     }
+
     file.path = file.data.slug;
-
     await orgToHtml(file);
-
-    if (file.data.type == "public") {
-      console.log(file)
-    }
-
     return file;
   }
 }
@@ -107,6 +105,7 @@ export async function getAllPaths() {
 export async function getPostBySlug(slug) {
   const posts = await allPosts();
   const post = await posts[slug];
+  console.log(post)
   return post;
 }
 
