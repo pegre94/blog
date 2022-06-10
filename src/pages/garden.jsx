@@ -3,13 +3,13 @@ import Head from 'next/head';
 import { getAllPosts } from '../lib/api';
 import Link from '../components/Link';
 
-const Archive = ({ posts }) => {
+const Garden = ({ posts }) => {
   return (
     <main>
       <Head>
-        <title>{'Archive'}</title>
+        <title>{'Digital garden'}</title>
       </Head>
-      <h1>{'Archive'}</h1>
+      <h1>{'Digital garden notes:'}</h1>
       <ul>
         {posts.map((p) => (
           <li key={p.path}>
@@ -20,7 +20,7 @@ const Archive = ({ posts }) => {
     </main>
   );
 };
-export default Archive;
+export default Garden ;
 
 export const getStaticProps = async () => {
   const allPosts = await getAllPosts();

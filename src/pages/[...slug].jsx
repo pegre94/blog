@@ -12,7 +12,7 @@ const Note = ({ title, hast, backlinks }) => {
       <Head>
         <title>{title}</title>
       </Head>
-      <h1>{title}</h1>
+      <h1 className="text-center">{title}</h1>
       <Rehype hast={hast} />
       {!!backlinks.length && (
         <section>
@@ -34,7 +34,7 @@ export default Note;
 export const getStaticPaths = async () => {
   const paths = await getAllPaths();
   // add '/' which is synonymous to '/index'
-  paths.push("/");
+  // paths.push("/");
 
   return {
     paths,
