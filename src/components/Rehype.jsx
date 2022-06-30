@@ -9,7 +9,8 @@ import Link from './Link';
 // component, which allows as replacing some of components with custom
 // implementation. e.g., we can replace all <a> links to use
 // `next/link`.
-const processor = unified().use(rehype2react, {
+const processor = unified()
+      .use(rehype2react, {
   createElement: React.createElement,
   Fragment: React.Fragment,
   components: {
@@ -18,7 +19,13 @@ const processor = unified().use(rehype2react, {
 });
 
 const Rehype = ({ hast }) => {
-  return <>{processor.stringify(hast)}</>;
+  let stringified = processor.stringify(hast)
+    return (
+      <article class="prose">
+        {stringified}
+      </article>
+    )
+
 };
 
 export default Rehype;

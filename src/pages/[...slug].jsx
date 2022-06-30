@@ -12,7 +12,7 @@ const Note = ({ title, hast, backlinks }) => {
       <Head>
         <title>{title}</title>
       </Head>
-      <h1 className="text-center">{title}</h1>
+      <div class="text-center font-bold text-5xl tracking-tight text-black md:text-5xl">{title}</div>
       <Rehype hast={hast} />
       {!!backlinks.length && (
         <section>

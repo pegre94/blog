@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -25,13 +26,13 @@ main {
   max-width: 800px;
   margin: auto;
 }
+/* TODO consider code styling for unhandled by highlight */
+/* pre { */
+/*   background-color: #eee; */
+/*   padding: 4px; */
+/*   overflow: auto; */
+/* } */
+/* code { */
+/*   background-color: #eee; */
 
-pre {
-  background-color: #eee;
-  padding: 4px;
-  overflow: auto;
-}
-code {
-  background-color: #eee;
-
-}
+/* } */

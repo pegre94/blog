@@ -4,7 +4,13 @@ import orgParse from 'uniorg-parse';
 import org2rehype from 'uniorg-rehype';
 import extractKeywords from 'uniorg-extract-keywords';
 import { uniorgSlug } from 'uniorg-slug';
+import rehypeHighlight from 'rehype-highlight'
 import { visitIds } from 'orgast-util-visit-ids';
+import langLisp from 'highlight.js/lib/languages/lisp'
+
+const extra_languages = {
+  lisp: langLisp
+}
 
 const processor = unified()
   .use(orgParse)
@@ -12,7 +18,8 @@ const processor = unified()
   .use(uniorgSlug)
   .use(extractIds)
   .use(org2rehype)
-  .use(toJson);
+  .use(rehypeHighlight, {languages: extra_languages, ignoreMissing: true})
+  .use(toJson)
 
 export default async function orgToHtml(file) {
   try {
@@ -21,7 +28,7 @@ export default async function orgToHtml(file) {
     console.error('failed to process file', file.path, e);
     throw e;
   }
-}
+  }
 
 function extractIds() {
   return transformer;

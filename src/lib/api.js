@@ -6,14 +6,13 @@ import report from "vfile-reporter";
 
 import orgToHtml from "./orgToHtml";
 import resolveLinks from "./resolveLinks";
-
 // We serve posts from "public" directory, so that we don't have to
 // copy assets.
 //
 // If you change this directory, make sure you copy all assets
 // (images, linked files) to the public directory, so that next.js
 // serves them.
-const pagesDirectory = path.join(process.cwd(), "public", "roam");
+const pagesDirectory = path.join(process.cwd(), "public", "roam2");
 
 const processor = trough()
   .use(collectFiles)
@@ -105,7 +104,6 @@ export async function getAllPaths() {
 export async function getPostBySlug(slug) {
   const posts = await allPosts();
   const post = await posts[slug];
-  console.log(post)
   return post;
 }
 
