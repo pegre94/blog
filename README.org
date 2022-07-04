@@ -17,5 +17,7 @@ Server should be up and running on [[http:localhost:3000]]
 - [-] Tailwind styling
   - [-] notes
   - [ ] index
-  - [-] code styling
+  - [X] code styling
 - [ ] Add dates to post
+- [ ] Tailwind css course
+  https://www.youtube.com/watch?v=3ZMUgga6SsY

@@ -1,31 +1,17 @@
 
 @tailwind base;
-@tailwind components;
 @tailwind utilities;
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+@tailwind components;
 
-  line-height: 1.5;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-#__next {
-  margin: 16px;
-}
-
+@layer base {
 main {
-  max-width: 800px;
-  margin: auto;
+    @apply max-w-5xl mx-auto ;
 }
+body {
+    @apply bg-gray-50 ;
+}
+}
+
 /* TODO consider code styling for unhandled by highlight */
 /* pre { */
 /*   background-color: #eee; */
