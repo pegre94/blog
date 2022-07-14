@@ -5,6 +5,7 @@ import { getAllPaths, getPostBySlug } from "../lib/api";
 
 import Link from "../components/Link";
 import Rehype from "../components/Rehype";
+import TopNav from "../components/Nav";
 
 
 
@@ -12,22 +13,9 @@ import Rehype from "../components/Rehype";
 const Note = ({ title, hast, backlinks }) => {
   return (
     <main >
-      <nav class="
-          flex flex-wrap
-          items-center
-          justify-between
-          w-full
-          py-4
-          md:py-0
-          px-4
-          text-lg text-gray-700
-          bg-white
-
-        ">
-
-      </nav>
-      
         <title>{title}</title>
+
+      <TopNav/>
 
       <div class="text-center font-bold text-5xl tracking-tight text-black md:text-5xl">{title}</div>
       <Rehype hast={hast} />

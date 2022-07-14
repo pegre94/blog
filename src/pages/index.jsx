@@ -3,64 +3,46 @@ import Image from 'next/image'
 import picOfMe from '../../public/static/me.jpg'
 import { getAllPosts } from '../lib/api';
 import Link from '../components/Link';
+import TopNav from '../components/Nav';
 
 const Index = ({ posts }) => {
   return (
-    <main class="flex flex-col">
+    <main class="flex flex-col ">
       <Head>
         <title>{'Neverending spiral'}</title>
       </Head>
-      <div class="flex flex-row bg-indigo-500 content-between">
-          <div class="flex flex-row my-2">
-            <div>
-              <a href="">
-                <span class="text-2xl mx-8">Home</span>
-              </a>
-            </div>
-            <div>
-              <a href="">
-                <span class="text-2xl mx-8">Notes</span>
-              </a>
-            </div>
-            <div>
-              <a href="">
-                <span class="text-2xl mx-8">Blog</span>
-              </a>
-            </div>
-          </div>
-        <div class="flex-1  bg-yellow-500">
+      <div class="flex flex-row content-between">
+        <TopNav/>
+        <div class="flex-1">
           {/* TODO add theme switch */}
           {/* https://heroicons.com/ */}
         </div>
 
-</div>
-      <div class="mx-4 mt-8">
-        <div class="flex flex-row">
+         </div>
+      <div class="mt-8 mx-3">
+        <div class="flex flex-row justify-between">
           <div>
-            <p class="text-4xl my-2">Welcome!</p>
-            <p class="text-3xl">My name is</p>
-            <p class="text-3xl font-bold">Przemysław Grenda</p>
-            <p class="text-1xl my-2 italic">This is the place where my ideas grow</p>
+            <p class="text-4xl mb-4">Welcome!</p>
+            <p class="text-2xl">My name is</p>
+            <p class="text-4xl font-bold">Przemysław Grenda</p>
+            <p class="text-1xl my-2 italic">and this is the place where my ideas grow</p>
           </div>
-          <div>
-          <Image class="rounded-full"
+          <Image class="rounded-full object-scale-down "
             src={picOfMe}
-      alt="Picture of the author"
-      width={200}
-      height={200}
-    />
-          </div>
-
+          alt="Picture of the author"
+          width={168}
+          height={168}
+        />
+        </div>
         </div>
 
 
-
-
-      <h1 class="text-lg">Test</h1>
-      <ul>
+      <div class="">
+      <h1 class="text-3xl my-4 mx-3">My notes:</h1>
+        <ul class="list-disc ml-8 ">
         {posts.map((p) => (
           <li key={p.path}>
-            <Link href={p.path}>{p.title}</Link>
+            <Link href={p.path} class="hover:underline">{p.title}</Link>
           </li>
         ))}
       </ul>

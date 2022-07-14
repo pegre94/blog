@@ -16,8 +16,14 @@ Server should be up and running on [[http:localhost:3000]]
 - [X] List all posts
 - [-] Tailwind styling
   - [-] notes
-  - [ ] index
+  - [X] index
+    - [X] notes listing header
+    - [X] nav responsive
   - [X] code styling
+- [ ] Add search functionality to blog, requirements:
+  - [ ] search through title and text
+  - [ ] use full text search
+- [ ] social media links
 - [ ] Add dates to post
-- [ ] Tailwind css course
-  https://www.youtube.com/watch?v=3ZMUgga6SsY
+- [ ] Notes overlays like in https://www.gwern.net/
+- [ ] Repository for every note
