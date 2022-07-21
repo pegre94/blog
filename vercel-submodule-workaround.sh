@@ -1,5 +1,5 @@
 # github submodule repo address without https:// prefix
-SUBMODULE_GITHUB=github.com/pegre94/blog
+SUBMODULE_GITHUB=github.com/pegre94/roam
 
 # .gitmodules submodule path
 SUBMODULE_PATH=public/roam
@@ -28,7 +28,7 @@ cd tmp # go into the tmp folder
 # checkout the current submodule commit
 git init # initialise empty repo
 git remote add origin https://$GITHUB_ACCESS_TOKEN@$SUBMODULE_GITHUB # add origin of the submodule
-git fetch --depth=1 origin $COMMIT # fetch only the required version
+git fetch --depth=1 --no-recurse-submodules origin $COMMIT # fetch only the required version
 git checkout $COMMIT # checkout on the right commit
 
 # move the submodule from tmp to the submodule path
