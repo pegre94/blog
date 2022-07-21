@@ -16,3 +16,4 @@ yarn-error.log*
 
 # Private data directories
 public/
+.vercel

@@ -17,7 +17,7 @@ const Note = ({ title, hast, backlinks }) => {
 
       <TopNav/>
 
-      <div class="text-center font-bold text-5xl tracking-tight text-black md:text-5xl">{title}</div>
+      <div class="font-bold text-5xl tracking-tight text-black md:text-5xl mb-2">{title}</div>
       <Rehype hast={hast} />
       {!!backlinks.length && (
         <section>

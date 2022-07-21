@@ -22,16 +22,16 @@ const Index = ({ posts }) => {
       <div class="mt-8 mx-3">
         <div class="flex flex-row justify-between">
           <div>
-            <p class="text-4xl mb-4">Welcome!</p>
+            <p class="text-3xl mb-2">Welcome!</p>
             <p class="text-2xl">My name is</p>
-            <p class="text-4xl font-bold">Przemysław Grenda</p>
+            <p class="text-3xl font-bold">Przemysław Grenda</p>
             <p class="text-1xl my-2 italic">and this is the place where my ideas grow</p>
           </div>
-          <Image class="rounded-full object-scale-down "
+          <Image class="rounded-full"
             src={picOfMe}
           alt="Picture of the author"
-          width={168}
-          height={168}
+          width={150}
+          height={150}
         />
         </div>
         </div>
