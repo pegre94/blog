@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "vercel-install": "./vercel-submodule-workaround.sh && yarn --ignore-scripts --production=false"
   },
   "dependencies": {
     "highlight.js": "^11.5.1",
