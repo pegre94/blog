@@ -16,6 +16,7 @@ set -e
 
 # get submodule commit
 git config --global init.defaultBranch main
+git submodule update
 output=`git submodule status --recursive` # get submodule info
 no_prefix=${output#*-} # get rid of the prefix
 COMMIT=${no_prefix% *} # get rid of the suffix
