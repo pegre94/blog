@@ -1,3 +1,3 @@
 [submodule "public/roam"]
 	path = public/roam
-	url = git@github.com:pegre94/roam.git
+	url = https://github.com/pegre94/roam
