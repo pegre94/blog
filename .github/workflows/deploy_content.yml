@@ -39,10 +39,3 @@ jobs:
         with:
           # Required
           commit_message: Update submodule ref
-      - name: Deploy to Vercel
-        uses: amondnet/vercel-action@v19.0.1+4
-        with:
-         vercel-token: ${{ secrets.PAT_VERCEL_TOKEN }} # Required
-         vercel-args: '--prod' #Optional
-         vercel-org-id: ${{ secrets.VERCEL_ORG_ID}}  #Required
-         vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID}} #Required
