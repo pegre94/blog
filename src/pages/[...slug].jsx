@@ -2,44 +2,47 @@ import { join } from "path";
 import Head from "next/head";
 
 import { getAllPaths, getPostBySlug } from "../lib/api";
+import moment from "moment";
 
 import Link from "../components/Link";
 import Rehype from "../components/Rehype";
 import TopNav from "../components/Nav";
 
-
-
-
-const Note = ({ title, hast, backlinks }) => {
+const Note = ({ title, hast, mtime, ctime, backlinks }) => {
   return (
-    <main >
-        <title>{title}</title>
+    <main>
+      <title>{title}</title>
 
-      <TopNav/>
+      <TopNav />
 
-      <div class="font-bold text-5xl tracking-tight text-black md:text-5xl mb-2">{title}</div>
+      <div class="font-bold text-5xl tracking-tight text-black md:text-5xl mb-2">
+        {title}
+      </div>
+      <div className="text-gray-600 mb-2">
+        Created: {moment(ctime, 'YYYYMMDDHHmmss').format('Do MMMM YYYY')}&nbsp;
+        Last Modified: {moment(mtime, 'YYYYMMDDHHmmss').format('Do MMMM YYYY')}</div>
       <Rehype hast={hast} />
-      {!!backlinks.length && (
-        <section>
-          <h2>{"Backlinks"}</h2>
-          <ul>
-            {backlinks.map((b) => (
-              <li key={b.path}>
-                <Link href={b.path}>{b.title}</Link>
-              </li>
-            ))}
-          </ul>
-        </section>
-      )}
-    </main>
+      {
+        !!backlinks.length && (
+          <section>
+            <h2>{"Backlinks"}</h2>
+            <ul>
+              {backlinks.map((b) => (
+                <li key={b.path}>
+                  <Link href={b.path}>{b.title}</Link>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )
+      }
+    </main >
   );
 };
 export default Note;
 
 export const getStaticPaths = async () => {
   const paths = await getAllPaths();
-  // add '/' which is synonymous to '/index'
-  // paths.push("/");
 
   return {
     paths,
@@ -56,6 +59,8 @@ export const getStaticProps = async ({ params }) => {
     props: {
       title: data.title || post.basename,
       hast: post.result,
+      mtime: data.mtime,
+      ctime: data.ctime,
       backlinks: backlinks.map((b) => ({
         path: b.path,
         title: b.data.title || b.basename,

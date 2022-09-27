@@ -8,22 +8,36 @@ I'm using [[https://github.com/rasendubi/uniorg][uniorg]] and [[https://nextjs.o
 2) Start server with: npx next dev
 Server should be up and running on [[http:localhost:3000]]
 ** Deploy the example using [[https:vercel.com][vercel]].
+** Extra functionalities:
+*** creation and modificatin dates https://github.com/tefkah/org-roam-timestamp
 
-
-* TODO Blog
-
+* TODO Must have
 - [X] Compile only tag "PUBLIC"
 - [X] List all posts
-- [-] Tailwind styling
-  - [-] notes
+- [X] Tailwind styling
+  - [X] notes
   - [X] index
     - [X] notes listing header
     - [X] nav responsive
   - [X] code styling
+- [X] automatically fetch github submodule
+    https://mayashavin.com/articles/github-actions-deploy-nuxt
+- [ ] Style links better
 - [ ] Add search functionality to blog, requirements:
   - [ ] search through title and text
   - [ ] use full text search
-- [ ] social media links
-- [ ] Add dates to post
+      - flexSearch:
+        * https://tnickel.de/2020/12/21/2020-12-Adding-full-text-search-via-flexSearch-to-a-blog/
+      - over the objects like in ~/blog/src/pages/[...slug].jsx
+
+- [ ] About section
+- [ ] Social media links
+  - figure out where to place it
+    - is it sufficient to place it in the header or at the bottom of page or should it be also added to about section
+
+* TODO Nice to have
+- [X] Add dates to post
+- [ ] Add neverending spiral
 - [ ] Notes overlays like in https://www.gwern.net/
-- [ ] Repository for every note
+- [ ] Gist alike repository for every note
+- [ ] Blog twitter mentions like https://bionicjulia.com/blog/add-search-functionality-nextjs-markdown-blog-part-2
