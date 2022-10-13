@@ -1,15 +1,21 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
+  corePlugins: {
+    preflight: false,
+  },
   content: [
     "./src/pages/*.{js,ts,jsx,tsx}",
     "./src/components/*.{js,ts,jsx,tsx}",
   ],
   darkMode: "class",
-    safelist: [{
+  safelist: [{
     pattern: /hljs+/,
   }],
+  important: '#__next',
   theme: {
-   hljs: {
+    hljs: {
       theme: 'night-owl',
     },
   },
