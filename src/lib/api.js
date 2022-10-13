@@ -12,7 +12,11 @@ import resolveLinks from "./resolveLinks";
 // If you change this directory, make sure you copy all assets
 // (images, linked files) to the public directory, so that next.js
 // serves them.
-const pagesDirectory = path.resolve(process.cwd(), "public", "roam");
+// const pagesDirectory = path.resolve(process.cwd(), "public", "roam");
+// get /home/pegre/roam
+// get absolute path
+const pagesDirectory = path.resolve(process.cwd(), "..", "roam");
+
 
 const processor = trough()
   .use(collectFiles)

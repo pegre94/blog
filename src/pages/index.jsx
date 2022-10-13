@@ -1,4 +1,5 @@
 import Head from "next/head";
+import moment from "moment";
 import Image from "next/image";
 import picOfMe from "../../public/static/me.jpg";
 import { getAllPosts } from "../lib/api";
@@ -39,12 +40,15 @@ const Index = ({ posts }) => {
       </div>
 
       <div class="">
-        <h1 class="text-3xl my-4 mx-3">My notes:</h1>
+        <h1 class="text-2xl my-4 mx-3">Recently updated notes:</h1>
+        {/* <div class="max-w-sm w-full lg:max-w-full lg:flex"> */}
+        {/*   test */}
+        {/* </div> */}
         <ul class="list-disc ml-8 ">
           {posts.map((p) => (
             <li key={p.path} class="hover:animate-pulse">
               <Link href={p.path} class="underline ">
-                {p.title}
+                {p.title} - {moment(p.mtime, 'YYYYMMDDHHmmss').format('Do MMMM YYYY')}
               </Link>
             </li>
           ))}
@@ -57,10 +61,11 @@ export default Index;
 
 export const getStaticProps = async () => {
   const allPosts = await getAllPosts();
+  console.log(allPosts);
   const posts = allPosts
-    .map((p) => ({ title: p.data.title || p.basename, path: p.path }))
-    .sort((a, b) => {
-      return a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1;
-    });
+    .map((p) => ({ title: p.data.title || p.basename, path: p.path, mtime: p.data.mtime }))
+    .slice(0, 5)
+    .sort((a, b) => new moment(a.mtime).format('YYYYMMDDHHmmss') - new moment(b.mtime).format('YYYYMMDDHHmmss'))
+
   return { props: { posts } };
 };

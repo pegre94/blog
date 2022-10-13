@@ -22,7 +22,10 @@ Server should be up and running on [[http:localhost:3000]]
   - [X] code styling
 - [X] automatically fetch github submodule
     https://mayashavin.com/articles/github-actions-deploy-nuxt
-- [ ] Style links better
+- [X] Style links better
+- [X] Put "recently created notes" section on the main page
+- [ ] Styling with mui
+- [ ] Put all the notes with search functionality
 - [ ] Add search functionality to blog, requirements:
   - [ ] search through title and text
   - [ ] use full text search
