@@ -74,14 +74,12 @@ const Index = ({ posts }) => {
                       {post.title}
                     </h3>
                     <div className="flex flex-row">
-                      <span
-                        className="px-4 py-2 mr-4 rounded-full text-gray-500 bg-gray-200 font-semibold text-sm flex align-center w-max" >
-                        Tag
-                      </span>
-                      <span
-                        className="px-4 py-2 mr-4 rounded-full text-gray-500 bg-gray-200 font-semibold text-sm flex align-center w-max" >
-                        Tag
-                      </span>
+                      {post.tags?.map((tag) => (
+                        <span
+                          className="px-4 py-2 ml-3 rounded-full text-gray-500 bg-gray-200 font-semibold text-sm flex align-center w-max" >
+                          {tag}
+                        </span>
+                      ))}
                     </div>
                   </div>
                   <div className="flex text-gray-600 max-h-40">
@@ -106,7 +104,6 @@ const Index = ({ posts }) => {
 export default Index;
 
 function getWords(content) {
-  const wordsPerMinute = 200;
   return content.split(/\s/g).length;
 }
 function getReadingTime(content) {
@@ -116,12 +113,12 @@ function getReadingTime(content) {
 
 export const getStaticProps = async () => {
   const allPosts = await getAllPosts();
+  // TODO: refactor there is alredy post value here and we are droping it to obtain it again later
   let posts = allPosts
-    .map((p) => ({ title: p.data.title || p.basename, path: p.path, mtime: p.data.mtime }))
+    .map((p) => ({ title: p.data.title || p.basename, path: p.path, mtime: p.data.mtime, tags: p.data.filetags?.slice(1, -1).split(":") || [] }))
     .slice(0, 5)
     .sort((a, b) => new moment(a.mtime).format('YYYYMMDDHHmmss') - new moment(b.mtime).format('YYYYMMDDHHmmss'))
 
-  // iterate over posts and get hasts using async getPostBySlug
   posts = await Promise.all(posts.map(async (p) => {
     const post = await getPostBySlug(p.path);
     const stringPost = post.value.toString()

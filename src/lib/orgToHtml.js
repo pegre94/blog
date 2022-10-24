@@ -51,6 +51,9 @@ function extractInternals() {
               if (grandchild.key === "ctime") {
                 data.ctime = grandchild.value;
               }
+              if (grandchild.key === "filetags") {
+                data.tags = grandchild.value;
+              }
             });
           }
         });
