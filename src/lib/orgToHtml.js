@@ -16,9 +16,8 @@ const processor = unified()
   .use(orgParse)
   .use(extractKeywords)
   .use(uniorgSlug)
-  .use(extractIds)
+  .use(extractInternals)
   .use(org2rehype)
-  .use(extractMtime)
   .use(rehypeHighlight, { languages: extra_languages, ignoreMissing: true })
   .use(toJson);
 
@@ -31,7 +30,7 @@ export default async function orgToHtml(file) {
   }
 }
 
-function extractIds() {
+function extractInternals() {
   return transformer;
 
   function transformer(tree, file) {
@@ -71,39 +70,7 @@ function extractIds() {
     });
   }
 }
-// extract mtime
 
-function extractMtime() {
-  return transformer;
-
-  function transformer(tree, file) {
-    const data = file.data || (file.data = {});
-    // ids is a map: id => #anchor
-    const ids = data.ids || (data.ids = {});
-
-    visitIds(tree, (id, node) => {
-      if (node.type === "org-data") {
-        ids[id] = "";
-      } else if (node.type === "headline") {
-        if (!node.data?.hProperties?.mtime) {
-          console.log("test");
-          console.log(node.mtime.hProperties?.mtime);
-          // The headline doesn't have an html id assigned. (Did you
-          // remove uniorg-slug?)
-          //
-          // Assign an html id property based on org id property.
-          node.data = node.data || {};
-
-          node.data.hProperties = node.data.hProperties || {};
-          node.data.hProperties.mtime = id;
-        }
-        ids[id] = "#" + node.data.hProperties.mtime;
-        console.log("test");
-        console.log(node.mtime.hProperties?.mtime);
-      }
-    });
-  }
-}
 
 /** A primitive compiler to return node as is without stringifying. */
 function toJson() {

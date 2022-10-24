@@ -9,6 +9,9 @@
     "vercel-install": "./vercel-submodule-workaround.sh && yarn --ignore-scripts --production=false"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
+    "@mui/material": "^5.10.9",
     "flexsearch": "^0.7.21",
     "highlight.js": "^11.5.1",
     "moment": "^2.29.4",
@@ -18,7 +21,9 @@
     "react-dom": "17.0.2",
     "react-icons": "^4.4.0",
     "rehype-highlight": "^5.0.2",
+    "rehype-parse": "^8.0.4",
     "rehype-react": "7.0.4",
+    "rehype-remark": "^9.1.2",
     "rehype-url-inspector": "^1.0.4",
     "sharp": "^0.30.3",
     "tailwind-highlightjs": "^2.0.0",

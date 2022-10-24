@@ -24,19 +24,23 @@ Server should be up and running on [[http:localhost:3000]]
     https://mayashavin.com/articles/github-actions-deploy-nuxt
 - [X] Style links better
 - [X] Put "recently created notes" section on the main page
-- [ ] Styling with mui
+- [X] Calculate reading time
+- [-] Notes tags handling
+- [ ] Local and production environment for example for notes path
 - [ ] Put all the notes with search functionality
 - [ ] Add search functionality to blog, requirements:
   - [ ] search through title and text
   - [ ] use full text search
-      - flexSearch:
-        * https://tnickel.de/2020/12/21/2020-12-Adding-full-text-search-via-flexSearch-to-a-blog/
-      - over the objects like in ~/blog/src/pages/[...slug].jsx
-
+    - flexSearch:
+      * https://tnickel.de/2020/12/21/2020-12-Adding-full-text-search-via-flexSearch-to-a-blog/
+    - over the objects like in ~/blog/src/pages/[...slug].jsx
 - [ ] About section
 - [ ] Social media links
   - figure out where to place it
     - is it sufficient to place it in the header or at the bottom of page or should it be also added to about section
+- [ ] Simplify way for new users to use my template
+  - [ ] Merge submodule to fork repo
+  - [ ] Describe process of creating new blog
 
 * TODO Nice to have
 - [X] Add dates to post
