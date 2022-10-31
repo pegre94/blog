@@ -2,7 +2,6 @@ import Head from "next/head";
 import moment from "moment";
 import Image from "next/image";
 import picOfMe from "../../public/static/me.jpg";
-import updateIcon from "../../public/static/update.svg";
 import { getAllPosts, getPostBySlug } from "../lib/api";
 import TopNav from "../components/Nav";
 import { unified } from 'unified';
