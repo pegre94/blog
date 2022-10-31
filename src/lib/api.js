@@ -12,9 +12,10 @@ import resolveLinks from "./resolveLinks";
 // If you change this directory, make sure you copy all assets
 // (images, linked files) to the public directory, so that next.js
 // serves them.
-const pagesDirectory = path.resolve(process.cwd(), "public", "roam");
+// const pagesDirectory = path.resolve(process.cwd(), "public", "roam");
 // get absolute path
 // const pagesDirectory = path.resolve(process.cwd(), "..", "roam");
+
 
 
 const processor = trough()
@@ -83,6 +84,10 @@ function populateBacklinks(files) {
 }
 
 const loadPosts = async () => {
+  let pagesDirectory = path.resolve(process.cwd(), "public", "roam");
+  if (process.env.LOCAL === "true") {
+    pagesDirectory = path.resolve(process.cwd(), "..", "roam")
+  }
   const files = await new Promise((resolve, reject) =>
     processor.run(pagesDirectory, (err, files) => {
       console.error(report(err || files, { quiet: true }));

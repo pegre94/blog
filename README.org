@@ -25,24 +25,30 @@ Server should be up and running on [[http:localhost:3000]]
 - [X] Style links better
 - [X] Put "recently created notes" section on the main page
 - [X] Calculate reading time
-- [-] Notes tags handling
-- [ ] Local and production environment for example for notes path
-- [ ] Put all the notes with search functionality
-- [ ] Add search functionality to blog, requirements:
+- [X] Notes tags handling
+- [X] Local and production environment for example for notes path
+- [ ]
+- [X] Move "Welcome!" section to about
+- Nav bar should show where you are right now
+- [-] Add search functionality to blog, requirements:
+  - [-] Search component
   - [ ] search through title and text
   - [ ] use full text search
     - flexSearch:
       * https://tnickel.de/2020/12/21/2020-12-Adding-full-text-search-via-flexSearch-to-a-blog/
     - over the objects like in ~/blog/src/pages/[...slug].jsx
+    - https://bobbyhadz.com/ Search in this blog is working really well
 - [ ] About section
 - [ ] Social media links
-  - figure out where to place it
-    - is it sufficient to place it in the header or at the bottom of page or should it be also added to about section
+    - [ ] figure out where to place it
+    - [ ] is it sufficient to place it in the header or at the bottom of page or should it be also added to about section
+- [ ] Footer with info creted using template
+
+
+* TODO Nice to have
 - [ ] Simplify way for new users to use my template
   - [ ] Merge submodule to fork repo
   - [ ] Describe process of creating new blog
-
-* TODO Nice to have
 - [X] Add dates to post
 - [ ] Add neverending spiral
 - [ ] Notes overlays like in https://www.gwern.net/

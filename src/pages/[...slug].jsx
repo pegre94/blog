@@ -11,31 +11,33 @@ import TopNav from "../components/Nav";
 const Note = ({ title, hast, mtime, ctime, backlinks }) => {
   return (
     <main>
-      <title>{title}</title>
+      <div className="mt-8 mx-3">
+        <title>{title}</title>
 
-      <TopNav />
+        <TopNav />
 
-      <div class="font-bold text-5xl tracking-tight text-black md:text-5xl mb-2">
-        {title}
+        <div class="font-bold text-5xl tracking-tight text-black md:text-5xl mb-2">
+          {title}
+        </div>
+        <div className="text-gray-600 mb-2">
+          Created: {moment(ctime, 'YYYYMMDDHHmmss').format('Do MMMM YYYY')}&nbsp;
+          Last Modified: {moment(mtime, 'YYYYMMDDHHmmss').format('Do MMMM YYYY')}</div>
+        <Rehype hast={hast} />
+        {
+          !!backlinks.length && (
+            <section>
+              <h2>{"Backlinks"}</h2>
+              <ul>
+                {backlinks.map((b) => (
+                  <li key={b.path}>
+                    <Link href={b.path}>{b.title}</Link>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )
+        }
       </div>
-      <div className="text-gray-600 mb-2">
-        Created: {moment(ctime, 'YYYYMMDDHHmmss').format('Do MMMM YYYY')}&nbsp;
-        Last Modified: {moment(mtime, 'YYYYMMDDHHmmss').format('Do MMMM YYYY')}</div>
-      <Rehype hast={hast} />
-      {
-        !!backlinks.length && (
-          <section>
-            <h2>{"Backlinks"}</h2>
-            <ul>
-              {backlinks.map((b) => (
-                <li key={b.path}>
-                  <Link href={b.path}>{b.title}</Link>
-                </li>
-              ))}
-            </ul>
-          </section>
-        )
-      }
     </main >
   );
 };
