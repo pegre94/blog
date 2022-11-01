@@ -85,10 +85,10 @@ function populateBacklinks(files) {
 
 const loadPosts = async () => {
   let pagesDirectory = path.resolve(process.cwd(), "public", "roam");
-  if (process.env.LOCAL === "true") {
-    pagesDirectory = path.resolve(process.cwd(), "..", "roam")
-  }
-  console.log("pagesDirectory", pagesDirectory)
+  // if (process.env.LOCAL === "true") {
+  //   pagesDirectory = path.resolve(process.cwd(), "..", "roam")
+  // }
+  // console.log("pagesDirectory", pagesDirectory)
   const files = await new Promise((resolve, reject) =>
     processor.run(pagesDirectory, (err, files) => {
       console.error(report(err || files, { quiet: true }));
